@@ -1,0 +1,26 @@
+{
+    "id": "cowsay-warp",
+    "cpus": 0.1,
+    "mem": 64.0,
+    "instances": 1,
+    "container": {
+	"type": "DOCKER",
+	"docker": {
+	    "image": "pdericson/cowsay-warp:latest",
+	    "network": "BRIDGE",
+	    "portMappings": [
+		{ "containerPort": 3000, "servicePort": 20002 }
+	    ]
+	}
+    },
+    "healthChecks": [
+	{
+	    "protocol": "COMMAND",
+	    "command": { "value": "curl -f -X POST http://$HOST:$PORT0 -d 'haskell'" },
+	    "gracePeriodSeconds": 30,
+	    "intervalSeconds": 60,
+	    "timeoutSeconds": 20,
+	    "maxConsecutiveFailures": 3
+	}
+    ]
+}
