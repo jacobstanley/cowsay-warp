@@ -1,0 +1,23 @@
+name:                cowsay
+version:             0.1.0.0
+synopsis:            cowsay
+description:         cowsay
+license:             BSD3
+license-file:        LICENSE
+author:              Jacob Stanley
+maintainer:          jacob@stanley.io
+category:            Network
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable cowsay
+  main-is:             Main.hs
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+
+  build-depends:
+      base        >= 4.8 && < 4.9
+    , bytestring  >= 0.10
+    , http-types  >= 0.8
+    , wai         >= 3.0
+    , warp        >= 3.0
